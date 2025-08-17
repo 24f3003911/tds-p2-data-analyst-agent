@@ -1,0 +1,56 @@
+FROM python:3.11-slim
+
+# Environment settings for Python
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+# System deps for scientific libs, scraping, and SQLite
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    gcc \
+    g++ \
+    libpq-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    libffi-dev \
+    libssl-dev \
+    sqlite3 \
+    ca-certificates \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install common Python libs
+RUN pip install --no-cache-dir \
+    requests \
+    beautifulsoup4 \
+    pandas \
+    numpy \
+    matplotlib \
+    seaborn \
+    pyarrow \
+    duckdb \
+    sqlalchemy \
+    lxml \
+    html5lib \
+    plotly \
+    scikit-learn \
+    scipy \
+    openpyxl \
+    xlrd \
+    pyxlsb \
+    fastparquet \
+    tabulate \
+    python-dateutil
+
+# Create non-root user for security
+RUN useradd -m sandboxuser
+USER sandboxuser
+
+# Set working directory
+WORKDIR /workspace
+
+# Default command — run Python in unbuffered mode
+CMD ["python3", "-u"]
+

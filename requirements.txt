@@ -1,0 +1,51 @@
+# Core Framework
+fastapi>=0.104.1,<0.110.0
+uvicorn[standard]>=0.24.0,<0.25.0
+python-multipart>=0.0.6,<0.1.0
+pydantic>=2.5.2,<3.0.0
+
+# LLM & AI Libraries
+openai>=1.6.1,<2.0
+
+# Data handling
+pandas>=2.2.2
+numpy>=1.26.4
+openpyxl>=3.1.2          # Excel support
+pyarrow>=14.0.2,<15.0
+
+# Visualization
+matplotlib>=3.8.2,<4.0
+seaborn>=0.13.0,<1.0
+
+# Machine Learning
+scikit-learn>=1.3.2,<2.0
+
+# Web / network requests
+httpx>=0.27.0
+requests>=2.32.3
+beautifulsoup4>=4.12.2,<5.0
+
+# Caching & Storage
+diskcache>=5.6.3,<6.0
+
+# File Handling
+aiofiles>=23.2.0,<24.0
+
+# Docker Integration for MCP
+docker>=6.1.3,<7.0
+
+# Testing
+pytest>=7.4.3,<8.0
+pytest-asyncio>=0.21.1,<1.0
+
+# Logging and utils
+python-dotenv>=1.0.1
+
+# Development Tools
+black>=23.12.1,<24.0
+flake8>=6.1.0,<7.0
+mypy>=1.8.0,<2.0
+
+# LLM clients
+google-genai>=0.3.0      # Gemini API
+openai>=1.35.0           # OpenAI + NVIDIA (OpenAI-compatible)
